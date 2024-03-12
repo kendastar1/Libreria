@@ -1,0 +1,265 @@
+
+
+Char.At();
+El método charAt se utiliza en Java para obtener el carácter ubicado en una posición específica dentro de una cadena de texto.
+char charAt(int index);
+String palabra = "Hola";
+char primerCaracter = palabra.charAt(0); // Obtener el primer carácter, que es 'H'
+char tercerCaracter = palabra.charAt(2); // Obtener el tercer carácter, que es 'l'
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Compareto();
+int compareTo(String otraCadena);
+El valor devuelto es negativo si la cadena actual precede a otraCadena en orden lexicográfico, cero si son iguales y positivo
+si la cadena actual sigue a otraCadena en orden lexicográfico.
+
+
+String cadena1 = "hola";
+String cadena2 = "adios";
+
+int resultado = cadena1.compareTo(cadena2);
+
+if (resultado < 0) {
+    System.out.println("cadena1 precede a cadena2");
+} else if (resultado == 0) {
+    System.out.println("cadena1 es igual a cadena2");
+} else {
+    System.out.println("cadena1 sigue a cadena2");
+}
+En este caso, el resultado sería "cadena1 precede a cadena2" porque en orden lexicográfico la letra 'h' precede a la letra 'a'.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int compareToIgnoreCase()
+
+El método compareToIgnoreCase es similar a compareTo, pero ignora las diferencias de mayúsculas y minúsculas al comparar las cadenas.
+ Esto significa que trata "Hola" y "hola" como si fueran iguales. La sintaxis es la siguiente:
+
+
+String cadena1 = "Hola";
+String cadena2 = "hola";
+
+int resultado = cadena1.compareToIgnoreCase(cadena2);
+
+if (resultado == 0) {
+    System.out.println("Las cadenas son iguales (ignorando mayúsculas y minúsculas)");
+} else {
+    System.out.println("Las cadenas son diferentes (ignorando mayúsculas y minúsculas)");
+}
+En este caso, el resultado sería "Las cadenas son iguales (ignorando mayúsculas y minúsculas)" porque las dos cadenas son consideradas
+iguales al ignorar las diferencias de mayúsculas y minúsculas.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String concat(String otraCadena);
+permite unir caracteres
+
+String cadena1 = "Hola";
+String cadena2 = "Mundo";
+
+String resultado = cadena1.concat(cadena2);
+
+System.out.println(resultado); // Esto imprimirá "HolaMundo"
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+El método copyValueOf en Java se utiliza para crear una nueva cadena que contiene los caracteres de una matriz de caracteres (array de char)
+ o de una porción de una matriz de caracteres. Hay dos variantes del método:
+
+copyValueOf(char[] data): Crea una cadena que contiene todos los caracteres de la matriz de caracteres especificada.
+copyValueOf(char[] data, int offset, int count): Crea una cadena que contiene la cantidad especificada de caracteres
+ a partir del índice especificado en la matriz de caracteres.
+Aquí tienes ejemplos de ambas variantes:
+
+// Ejemplo de copyValueOf(char[] data);
+char[] caracteres = {'H', 'o', 'l', 'a'};
+String cadena1 = String.copyValueOf(caracteres);
+System.out.println(cadena1); // Imprimirá "Hola"
+
+// Ejemplo de copyValueOf(char[] data, int offset, int count);
+String cadena2 = String.copyValueOf(caracteres, 1, 2);
+System.out.println(cadena2); // Imprimirá "ol"
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+endsWith(String suffix): Este método comprueba si una cadena termina con el sufijo especificado. 
+Devuelve true si la cadena termina con el sufijo dado, de lo contrario, devuelve false.
+
+
+String str = "Hola Mundo";
+boolean terminaCon = str.endsWith("Mundo");
+System.out.println(terminaCon); // Imprimirá "true"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+El código que proporcionaste convierte la cadena "Hola Mundo" en una matriz de bytes utilizando
+ la codificación de caracteres predeterminada de la plataforma y luego asigna esa matriz de bytes a la variable bytes.
+ Sin embargo, este código no imprime nada en la consola. Para imprimir la matriz de bytes, puedes usar un bucle for o utilizar
+ Arrays.toString() para convertir la matriz en una cadena legible e imprimir esa cadena. Aquí tienes un ejemplo:
+
+
+String str = "Hola Mundo";
+byte[] bytes = str.getBytes();
+
+// Imprimir la matriz de bytes utilizando Arrays.toString()
+System.out.println(Arrays.toString(bytes));
+
+Esto imprimirá algo similar a [72, 111, 108, 97, 32, 77, 117, 110, 100, 111], donde cada número representa el valor ASCII del carácter correspondiente en la cadena "Hola Mundo".
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+indexOf(String str): 
+Este método devuelve la posición de la primera ocurrencia de la cadena especificada en esta cadena. Si la cadena no está presente, devuelve -1
+String str = "Hola Mundo";
+int indice = str.indexOf("Mundo");
+System.out.println(indice); // Imprimirá "5"
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+lastIndexOf(String str): 
+Este método devuelve la posición de la última ocurrencia de la cadena especificada en esta cadena. Si la cadena no está presente, devuelve -1.
+String str = "Hola Mundo Mundo";
+int ultimoIndice = str.lastIndexOf("Mundo");
+System.out.println(ultimoIndice); // Imprimirá "11"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+El método replace en Java se utiliza para reemplazar todas las apariciones de un carácter o una subcadena dentro de una cadena con otra cadena. 
+La sintaxis básica es la siguiente:
+
+String replace(CharSequence target, CharSequence replacement)
+
+Donde target es la secuencia de caracteres que se va a reemplazar y replacement es la secuencia de caracteres con la que se va a reemplazar. El método devuelve una nueva cadena con todas las apariciones de target reemplazadas por replacement.
+
+Aquí tienes un ejemplo de cómo usar replace para reemplazar un carácter en una cadena:
+
+String str = "Hello, World!";
+String nuevaStr = str.replace('o', '0');
+System.out.println(nuevaStr); // Imprimirá "Hell0, W0rld!"
+
+En este caso, todas las apariciones del carácter 'o' en la cadena original son reemplazadas por '0', lo que resulta en la cadena "Hell0, W0rld!".
+
+También puedes usar replace para reemplazar subcadenas en una cadena. Por ejemplo:
+
+String str = "Hello, World!";
+String nuevaStr = str.replace("Hello", "Hi");
+System.out.println(nuevaStr); // Imprimirá "Hi, World!"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+El método `replaceFirst` en Java se utiliza para reemplazar la primera ocurrencia de una subcadena dentro de una cadena con otra subcadena. La sintaxis básica es la siguiente:
+
+String replaceFirst(String regex, String replacement)
+
+Donde `regex` es la expresión regular que representa la subcadena que se va a reemplazar y `replacement` es la subcadena con la que se va a reemplazar. El método devuelve una nueva cadena con la primera ocurrencia de `regex` reemplazada por `replacement`.
+
+Aquí tienes un ejemplo de cómo usar `replaceFirst`:
+
+
+String str = "Hello, World!";
+String nuevaStr = str.replaceFirst("o", "0");
+System.out.println(nuevaStr); // Imprimirá "Hell0, World!"
+
+En este caso, solo la primera aparición del carácter `'o'` en la cadena original es reemplazada por `'0'`, resultando en la cadena "Hell0, World!".
+ Las demás apariciones del carácter `'o'` no se ven afectadas.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+El método `replaceAll` en Java se utiliza para reemplazar todas las ocurrencias de una subcadena dentro de una cadena con otra subcadena,
+ utilizando expresiones regulares. La sintaxis es la siguiente:
+
+String replaceAll(String regex, String replacement)
+
+
+Donde `regex` es la expresión regular que representa la subcadena que se va a reemplazar y `replacement` es la subcadena con la que se va a reemplazar.
+ El método devuelve una nueva cadena con todas las ocurrencias de `regex` reemplazadas por `replacement`.
+
+Aquí tienes un ejemplo de cómo usar `replaceAll`:
+
+String str = "Hello, World!";
+String nuevaStr = str.replaceAll("o", "0");
+System.out.println(nuevaStr); // Imprimirá "Hell0, W0rld!"
+
+En este caso, todas las apariciones del carácter `'o'` en la cadena original son reemplazadas por `'0'`, 
+resultando en la cadena "Hell0, W0rld!". Las demás apariciones del carácter `'o'` no se ven afectadas.
+
+Es importante tener en cuenta que `replaceAll` utiliza expresiones regulares para buscar las ocurrencias a reemplazar, 
+por lo que se pueden utilizar patrones más complejos para realizar los reemplazos.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+ startsWith(String prefix)`: Este método verifica si una cadena comienza con el prefijo especificado. Devuelve `true`
+ si la cadena comienza con el prefijo dado, de lo contrario, devuelve `false`.
+
+   
+   String str = "Hello, World!";
+   boolean comienzaCon = str.startsWith("Hello");
+   System.out.println(comienzaCon); // Imprimirá "true"
+   ```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ substring(int beginIndex)`: Este método devuelve una subcadena de la cadena original, comenzando desde `beginIndex` hasta el final de la cadena.
+
+  
+   String str = "Hello, World!";
+   String subcadena = str.substring(7);
+   System.out.println(subcadena); // Imprimirá "World!"
+   ```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`toCharArray()`: Este método convierte la cadena en una matriz de caracteres (array de char).
+
+   
+  String str = "Hello";
+char[] caracteres = str.toCharArray();
+
+// Imprimir la matriz de caracteres utilizando un bucle for
+for (int i = 0; i < caracteres.length; i++) {
+    System.out.print(caracteres[i] + " ");
+}
+System.out.println(); // Imprimirá una línea en blanco
+
+// O puedes imprimir la matriz de caracteres directamente
+System.out.println(Arrays.toString(caracteres)); // Imprimirá "[H, e, l, l, o]"
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `toLowerCase()`: Este método devuelve una nueva cadena con todos los caracteres en minúscula.
+
+   
+   String str = "Hello";
+   String enMinuscula = str.toLowerCase();
+   System.out.println(enMinuscula); // Imprimirá "hello"
+   ```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `toUpperCase()`: Este método devuelve una nueva cadena con todos los caracteres en mayúscula.
+
+   
+   String str = "Hello";
+   String enMayuscula = str.toUpperCase();
+   System.out.println(enMayuscula); // Imprimirá "HELLO"
+   ```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+trim()`: Este método devuelve una copia de la cadena original, con los espacios en blanco al principio y al final eliminados.
+
+  
+   String str = "   Hello   ";
+   String sinEspacios = str.trim();
+   System.out.println(sinEspacios); // Imprimirá "Hello"
+   ```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ valueOf`: Este método está sobrecargado y se utiliza para convertir varios tipos de datos en cadenas.
+
+   
+   int numero = 42;
+   String cadena = String.valueOf(numero);
+   System.out.println(cadena); // Imprimirá "42"
+   ```
+
+Estos métodos son útiles para manipular cadenas de texto en Java de diversas formas.
